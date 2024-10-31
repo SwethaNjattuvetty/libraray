@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        {% if product %}
+            {% for i in product %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <!-- Card Image -->
+                    <img src="{{ i.image.url }}" class="img-fluid"
+                         style="height: 300px; ">
+                    <!-- Card Body -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{ i.name }}</h5>
+                        <p class="card-text text-muted">{{ i.desc|truncatewords:10 }}</p>
+                        <p class="card-text">
+                            <span class="font-weight-bold">Price: </span>
+                            {{ i.price }}
+                        </p>
+                    </div>
+                    <!-- Card Footer -->
+                    <div class="card-footer text-center">
+                        <a href="{% url 'shop:details' i.id %}" class="btn btn-dark">Detail</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <h2>No results found</h2>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

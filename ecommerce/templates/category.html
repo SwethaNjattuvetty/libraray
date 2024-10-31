@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="row mt-3">
+    <div class="col-12">
+        <img src="{% static 'images/sale.jpg' %}" height="600px" width="100%">
+    </div>
+    <div class="container">
+    </div>
+</div>
+
+<div class="container mb-5 fs-5">
+    <div class="row mt-3 ms-3 me-5">
+        <h2 class="text-center fw-bold">Our Collections</h2>
+        <p style="text-align:justify;" class="fs-5">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
+    </div>
+    <div class="row mt-4">
+        {% for i in cat %}
+        <div class="col-sm-4">
+            <div class="card mx-auto" style="width: 20rem; height: 350px; background-color: #88D66C; border-radius: 30px;">
+                <img src="{{i.image.url}}" class="card-img-top" alt="..." height="200px" style="border-top-left-radius: 30px; border-top-right-radius: 30px;">
+                <div class="card-body text-center">
+                    <h3 class="card-title">{{i.name}}</h3>
+                    <a href="{% url 'shop:products' i.id %}" class="btn mt-3 btn-center" style="background-color: #E5E483;">Details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

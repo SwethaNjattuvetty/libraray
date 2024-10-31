@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<body style="background-color:#AB886D">
+<div class="container mt-5 mb-5 " style="max-width:700px;">
+
+ <form method="POST">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">User name</label>
+        <input type="text" class="form-control"  placeholder="Enter the username" name="u">
+      </div>
+
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control"  placeholder="Enter the password " name="p">
+      </div>
+<center>
+      <button type="submit" value="Add" class="btn btn-dark ">Submit</button></center>
+ </form>
+
+
+
+
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+     </div>
+{% endblock %}
+</body>

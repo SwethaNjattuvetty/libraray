@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% for i in orders %}
+<div style="padding: 20px; max-width: 800px; background-color: #f8f9fa; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+  <h3 style="color: #343a40; font-weight: bold;">User Name: {{ i.user }}</h3>
+</div>
+
+<div class="card mb-3 ms-5" style="max-width: 100%; border: none; margin: 20px 0;">
+  <div class="row g-0">
+    <div class="col-md-4" style="max-width: 300px;">
+      <img src="{{ i.product.image.url }}" class="img-fluid rounded-start" alt="Product Image" style="border-radius: 10px; width: 100%; height: auto;">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title" style="font-size: 1.5rem; font-weight: bold; color: #007bff;">Product Name: {{ i.product }}</h5>
+        <p class="card-text" style="color: #6c757d; font-size: 1.2rem;">Product Price: <span style="font-weight: bold;">₹{{ i.product.price }}</span></p>
+        <p class="card-text" style="font-size: 1.2rem;">No of Items: <span style="font-weight: bold;">{{ i.no_of_item }}</span></p>
+        <p class="card-text" style="font-size: 1.2rem;">Delivery Address: <span style="font-weight: bold;">{{ i.address }}</span></p>
+        <p class="card-text" style="font-size: 1.2rem;">Phone: <span style="font-weight: bold;">{{ i.phoneno }}</span></p>
+        <p class="card-text" style="font-size: 1.2rem;">Ordered On: <span style="font-weight: bold;">{{ i.order_date}}</span></p>
+        <p class="card-text" style="font-size: 1.2rem; color: {{ i.delivery_status }};">
+          Delivery Status: <span style="font-weight: bold;">{{ i.delivery_status }}</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endfor %}
+{% endblock %}
