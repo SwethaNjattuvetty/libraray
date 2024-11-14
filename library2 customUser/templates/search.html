@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<h2>search</h2>
+<table class=" container table table-bordered  table-striped table-hover  " style="background-color:#E7D37F;">
+    <tr>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Price</th>
+        <th>Language</th>
+        <th>Images</th>
+        <th>Pdf</th>
+    </tr>
+
+    {% for i in book %}
+    <tr>
+        <td>{{i.title}}</td>
+        <td>{{i.author}}</td>
+        <td>{{i.pages}}</td>
+        <td>{{i.price}}</td>
+        <td>{{i.Language}}</td>
+        <td><img src="{{i.cover.url}} " height="100px"></td>
+        <td><a href="{{i.pdf.url}}">Download</a></td>
+    </tr>
+     {% endfor %}
+
+</table>
+{% endblock %}

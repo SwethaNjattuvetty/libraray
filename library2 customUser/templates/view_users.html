@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1 class="text-center">User Details</h1>
+
+<!--<ol>-->
+<!--    {% for i in view_users %}-->
+<!--        <li class="fw-bold mt-3 mb-3">User Details</li>-->
+<!--        <ul>-->
+<!--            <li>Name: {{ i.name }}</li>-->
+<!--            <li>Age: {{ i.age }}</li>-->
+<!--            <li>Place: {{ i.place }}</li>-->
+<!--            <li>Gender: {{ i.gender }}</li>-->
+<!--            <li>Email: {{ i.email }}</li>-->
+<!--        </ul>-->
+<!--    {% empty %}-->
+<!--        <li>No users available.</li>-->
+<!--    {% endfor %}-->
+<!--</ol>-->
+
+
+<table class=" container table table-bordered  table-striped table-hover  " style="background-color:#E7D37F;">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Place</th>
+        <th>Gender</th>
+        <th>Email</th>
+    </tr>
+
+    {% for i in  view_users %}
+    <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.age}}</td>
+        <td>{{i.place}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.email}}</td>
+
+    </tr>
+     {% endfor %}
+</table>
+{% endblock %}

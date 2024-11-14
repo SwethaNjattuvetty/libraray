@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<h1 class="text-center mt-5" >Enter Book Details</h1>
+<div class="container mt-5 " style="max-width:700px;">
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-control"  placeholder="Enter book title" name="t">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Author</label>
+        <input type="text" class="form-control" placeholder="Enter author's name" name="a">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Pages</label>
+        <input type="number" class="form-control"  placeholder="Enter number of pages" name="pg">
+      </div>
+
+      <div class="mb-3">
+        <label  class="form-label">Price ($)</label>
+        <input type="number" class="form-control"  placeholder="Enter price" name="pr">
+
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">cover</label>
+        <input type="file" class="form-control"   name="i">
+      </div>
+      <div class="mb-3">
+        <label  class="form-label">Pdf</label>
+        <input type="file" class="form-control"  name="f">
+      </div>
+
+          <div class="mb-3">
+    <label class="form-label" style="color:#F8F4E1;">Language</label>
+    <input type="text" class="form-control" name="la"   placeholder="enter language">
+  </div>
+
+     <center>
+      <button type="submit" value="Add" class="btn btn-dark ">Submit</button></center>
+    </form>
+  </div>
+{% endblock %}
